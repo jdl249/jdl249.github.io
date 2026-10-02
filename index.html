@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jayden Lee | Portfolio</title>
+  <meta name="description" content="Jayden Lee, Finance & Accounting student at Rutgers Business School. Skills, projects, and contact information.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #1d4ed8;
+      --accent-soft: #eff6ff;
+      --accent-text: #ffffff;
+      --radius: 14px;
+      --max: 1000px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120;
+        --surface: #131c2e;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --border: #23304a;
+        --accent: #60a5fa;
+        --accent-soft: #172554;
+        --accent-text: #0b1120;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Navigation */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px 24px; min-height: 64px; padding: 10px 0;
+    }
+    .logo { font-weight: 800; font-size: 1.15rem; color: var(--text); }
+    .logo:hover { text-decoration: none; }
+    .nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* Hero / Personal statement */
+    .hero { padding: 96px 0 80px; }
+    .eyebrow {
+      display: inline-block; font-size: 0.85rem; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 12px; border-radius: 999px; margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      line-height: 1.1; font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .statement {
+      font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+      color: var(--muted); max-width: 740px; margin-bottom: 18px;
+    }
+    .credentials {
+      display: flex; flex-wrap: wrap; gap: 6px 18px;
+      list-style: none; font-size: 0.95rem; font-weight: 600;
+      color: var(--text); margin-bottom: 32px;
+    }
+    .credentials li + li::before { content: "·"; margin-right: 18px; color: var(--muted); }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 10px;
+      font-weight: 600; font-size: 0.95rem; border: 1px solid var(--accent);
+      transition: transform 0.15s ease;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: var(--accent-text); }
+    .btn-outline { color: var(--accent); background: transparent; }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    section + section { border-top: 1px solid var(--border); }
+    .section-title { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .section-sub { color: var(--muted); margin-bottom: 36px; }
+
+    /* Skills */
+    .skills-grid {
+      display: grid; gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    }
+    .skill-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+    }
+    .skill-card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+    .tags li {
+      background: var(--accent-soft); color: var(--accent);
+      font-size: 0.85rem; font-weight: 600;
+      padding: 5px 12px; border-radius: 999px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid; gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 26px;
+      display: flex; flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10); }
+    .project-meta {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em; color: var(--muted); margin-bottom: 8px;
+    }
+    .project-card h3 { font-size: 1.2rem; line-height: 1.35; margin-bottom: 10px; }
+    .project-card p { color: var(--muted); margin-bottom: 16px; flex-grow: 1; }
+    .project-card .tags { margin-bottom: 20px; }
+    .project-card .tags li { font-size: 0.78rem; padding: 3px 10px; }
+    .project-links { display: flex; gap: 18px; font-weight: 600; font-size: 0.95rem; }
+
+    /* Contact / Footer */
+    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0; text-align: center;
+      color: var(--muted); font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 64px 0 56px; }
+      section { padding: 56px 0; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#top" class="logo">Jayden Lee</a>
+        <ul class="nav-links">
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== PERSONAL STATEMENT ===================== -->
+    <div class="hero">
+      <div class="container">
+        <span class="eyebrow">Finance &amp; Accounting · Rutgers Business School</span>
+        <h1>Hi, I'm Jayden Lee.</h1>
+
+        <p class="statement">
+          I'm a Rutgers finance and accounting student who builds accurate, well-organized
+          Excel workpapers and reconciliations that turn complex fund and revenue data into
+          numbers people can trust.
+        </p>
+
+        <ul class="credentials">
+          <li>B.S. Finance &amp; Accounting, May 2028</li>
+          <li>3.51 GPA</li>
+          <li>Dean's List (3x)</li>
+        </ul>
+
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">View My Projects</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-sub">What I bring to a finance, accounting, or tax team.</p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Accounting &amp; Finance</h3>
+            <ul class="tags">
+              <li>Partnership Tax Allocation</li>
+              <li>Fund Accounting</li>
+              <li>P&amp;L Allocation</li>
+              <li>Revenue Reconciliation</li>
+              <li>Tax Research (Forms 1065 &amp; 1120)</li>
+              <li>Financial &amp; Managerial Accounting</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3>Technical Tools</h3>
+            <ul class="tags">
+              <li>Microsoft Excel (Certified)</li>
+              <li>XLOOKUP &amp; IFNA</li>
+              <li>PowerPoint</li>
+              <li>Word</li>
+              <li>Outlook &amp; Teams</li>
+              <li>Adobe Acrobat Pro</li>
+              <li>Google Workspace</li>
+              <li>POS Systems</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3>Leadership &amp; Communication</h3>
+            <ul class="tags">
+              <li>Team Supervision</li>
+              <li>Training &amp; Presenting</li>
+              <li>Negotiation</li>
+              <li>Operations &amp; Logistics</li>
+              <li>Customer Service</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3>Languages</h3>
+            <ul class="tags">
+              <li>Korean (Limited Working)</li>
+              <li>Spanish (Limited Working)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-sub">Real work from my internship, my job, and this site.</p>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-meta">Apex Group · Summer 2026</div>
+            <h3>Partnership Capital-to-Tax Allocation Workpaper</h3>
+            <p>
+              Built an Excel workpaper that allocates capital and tax figures across 200+
+              limited partner accounts, then taught the methodology to the team in an
+              internal training presentation.
+            </p>
+            <ul class="tags">
+              <li>Excel</li>
+              <li>XLOOKUP / IFNA</li>
+              <li>Partnership Tax</li>
+            </ul>
+            <div class="project-links">
+              <a href="allocation-workpaper.html">Read Case Study →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">Osaka Sushi · 2023–Present</div>
+            <h3>Restaurant Revenue Reconciliation</h3>
+            <p>
+              Validate $130k+ in monthly gross revenue by reconciling POS cash flows,
+              credit card batches, and revenue adjustments across seven order channels
+              and 2,200+ orders a month.
+            </p>
+            <ul class="tags">
+              <li>Reconciliation</li>
+              <li>Cash Controls</li>
+              <li>POS Reporting</li>
+            </ul>
+            <div class="project-links">
+              <a href="revenue-reconciliation.html">Read Case Study →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">Personal · Fall 2026</div>
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              This site. A responsive portfolio written in HTML and CSS and published with
+              GitHub Pages, with a mobile-friendly layout and automatic dark mode.
+            </p>
+            <ul class="tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>GitHub Pages</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/jdl249/jdl249.github.io" target="_blank" rel="noopener">View Code →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">I'm looking for finance, accounting, and tax internships. Let's connect.</p>
+
+        <div class="contact-links">
+          <a href="mailto:jayden.lee.d@outlook.com" class="btn btn-primary">Email Me</a>
+          <a href="https://github.com/jdl249" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+          <!-- Have a LinkedIn? Add this line (with your real link) to get a LinkedIn button:
+          <a href="https://www.linkedin.com/in/YOUR-LINKEDIN/" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
+          -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Jayden Lee · Built with HTML &amp; CSS · Hosted on GitHub Pages
+    </div>
+  </footer>
+
+</body>
+</html>

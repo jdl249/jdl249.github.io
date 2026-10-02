@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allocation Workpaper | Jayden Lee</title>
+  <meta name="description" content="Case study: a partnership capital-to-tax allocation workpaper for 200+ limited partner accounts.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --muted: #475569;
+      --border: #e2e8f0; --accent: #1d4ed8; --accent-soft: #eff6ff;
+      --radius: 14px; --max: 760px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120; --surface: #131c2e; --text: #f1f5f9; --muted: #94a3b8;
+        --border: #23304a; --accent: #60a5fa; --accent-soft: #172554;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    header { border-bottom: 1px solid var(--border); }
+    nav { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: 16px; flex-wrap: wrap; padding: 10px 0; }
+    .logo { font-weight: 800; font-size: 1.15rem; color: var(--text); }
+    .logo:hover { text-decoration: none; }
+    .back { font-weight: 600; font-size: 0.95rem; }
+
+    article { padding: 64px 0 80px; }
+    .meta {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em; color: var(--muted); margin-bottom: 10px;
+    }
+    h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .lede { font-size: 1.15rem; color: var(--muted); margin-bottom: 36px; }
+
+    .stats { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); margin-bottom: 48px; }
+    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+    .stat strong { display: block; font-size: 1.45rem; font-weight: 800; color: var(--accent); line-height: 1.25; }
+    .stat span { font-size: 0.9rem; color: var(--muted); }
+
+    h2 { font-size: 1.35rem; font-weight: 800; margin: 40px 0 12px; }
+    p { margin-bottom: 14px; }
+    ul.points { padding-left: 22px; margin-bottom: 14px; }
+    ul.points li { margin-bottom: 8px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 6px; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+    .tags li { background: var(--accent-soft); color: var(--accent); font-size: 0.85rem; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+
+    .note { margin-top: 40px; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 10px 10px 0; color: var(--muted); font-size: 0.95rem; }
+    .end-link { margin-top: 40px; font-weight: 600; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Jayden Lee</a>
+        <a href="index.html#projects" class="back">← Back to Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <div class="meta">Apex Group (FTS) · Fund Tax &amp; Accounting Intern · Summer 2026</div>
+      <h1>Partnership Capital-to-Tax Allocation Workpaper</h1>
+      <p class="lede">
+        An Excel workpaper that ties each investor's capital account to their share of the
+        fund's tax figures, built for more than 200 limited partner accounts.
+      </p>
+
+      <div class="stats">
+        <div class="stat"><strong>200+</strong><span>limited partner accounts covered</span></div>
+        <div class="stat"><strong>XLOOKUP + IFNA</strong><span>core Excel logic</span></div>
+        <div class="stat"><strong>Team training</strong><span>methodology presented internally</span></div>
+      </div>
+
+      <h2>The problem</h2>
+      <p>
+        Investment funds set up as partnerships don't pay tax themselves. Instead, the fund's
+        income, gains, and losses are allocated to each investor, and every limited partner
+        needs their share reported correctly. That means each partner's capital account has
+        to be connected to their slice of the tax numbers, and with hundreds of partners,
+        doing it by hand is slow and easy to get wrong.
+      </p>
+
+      <h2>What I built</h2>
+      <ul class="points">
+        <li>
+          A capital-to-tax allocation workpaper covering more than 200 limited partner
+          accounts.
+        </li>
+        <li>
+          <code>XLOOKUP</code> formulas that pull each partner's figures from the source data
+          automatically, instead of copying numbers by hand.
+        </li>
+        <li>
+          <code>IFNA</code> wrappers so a partner who is missing from a source returns a clean
+          value instead of an <code>#N/A</code> error that would break the totals.
+        </li>
+      </ul>
+
+      <h2>Teaching it to the team</h2>
+      <p>
+        I prepared and presented an internal training deck that walked through how
+        partnership funds are structured and how P&amp;L gets allocated to partners, so
+        others could understand and use the same approach.
+      </p>
+
+      <h2>Related research</h2>
+      <p>
+        During the same internship, I researched IRS Forms 1065 (partnership returns) and
+        1120 (corporate returns), along with their supplemental schedules, for a managing
+        director's technical review.
+      </p>
+
+      <h2>Skills used</h2>
+      <ul class="tags">
+        <li>Microsoft Excel</li>
+        <li>XLOOKUP</li>
+        <li>IFNA</li>
+        <li>Partnership Tax</li>
+        <li>Fund Accounting</li>
+        <li>P&amp;L Allocation</li>
+        <li>PowerPoint</li>
+        <li>Presenting</li>
+      </ul>
+
+      <p class="note">
+        The workpaper contains confidential client and investor data, so this page describes
+        the approach rather than showing the file itself.
+      </p>
+
+      <p class="end-link"><a href="index.html#projects">← Back to all projects</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Jayden Lee</div>
+  </footer>
+
+</body>
+</html>

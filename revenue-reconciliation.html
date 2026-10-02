@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revenue Reconciliation | Jayden Lee</title>
+  <meta name="description" content="Case study: reconciling $130k+ in monthly restaurant revenue across POS, cash, and card batches.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --muted: #475569;
+      --border: #e2e8f0; --accent: #1d4ed8; --accent-soft: #eff6ff;
+      --radius: 14px; --max: 760px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120; --surface: #131c2e; --text: #f1f5f9; --muted: #94a3b8;
+        --border: #23304a; --accent: #60a5fa; --accent-soft: #172554;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    header { border-bottom: 1px solid var(--border); }
+    nav { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: 16px; flex-wrap: wrap; padding: 10px 0; }
+    .logo { font-weight: 800; font-size: 1.15rem; color: var(--text); }
+    .logo:hover { text-decoration: none; }
+    .back { font-weight: 600; font-size: 0.95rem; }
+
+    article { padding: 64px 0 80px; }
+    .meta {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em; color: var(--muted); margin-bottom: 10px;
+    }
+    h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .lede { font-size: 1.15rem; color: var(--muted); margin-bottom: 36px; }
+
+    .stats { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); margin-bottom: 48px; }
+    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+    .stat strong { display: block; font-size: 1.45rem; font-weight: 800; color: var(--accent); line-height: 1.25; }
+    .stat span { font-size: 0.9rem; color: var(--muted); }
+
+    h2 { font-size: 1.35rem; font-weight: 800; margin: 40px 0 12px; }
+    p { margin-bottom: 14px; }
+    ul.points { padding-left: 22px; margin-bottom: 14px; }
+    ul.points li { margin-bottom: 8px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 6px; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+    .tags li { background: var(--accent-soft); color: var(--accent); font-size: 0.85rem; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+
+    .note { margin-top: 40px; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 10px 10px 0; color: var(--muted); font-size: 0.95rem; }
+    .end-link { margin-top: 40px; font-weight: 600; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Jayden Lee</a>
+        <a href="index.html#projects" class="back">← Back to Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <div class="meta">Osaka Sushi · Front-of-House Lead · Dec 2023 – Present</div>
+      <h1>Restaurant Revenue Reconciliation</h1>
+      <p class="lede">
+        Making sure the sales a busy restaurant records actually match the money it takes in,
+        across every way customers order and pay.
+      </p>
+
+      <div class="stats">
+        <div class="stat"><strong>$130k+</strong><span>monthly gross revenue validated</span></div>
+        <div class="stat"><strong>2,200+</strong><span>orders per month</span></div>
+        <div class="stat"><strong>7</strong><span>order and fulfillment channels</span></div>
+      </div>
+
+      <h2>The problem</h2>
+      <p>
+        A restaurant takes money through several routes at once: cash, credit cards, and
+        orders coming in through different channels. The point-of-sale (POS) system records
+        what was sold, but those records only mean something if they match the cash in the
+        drawer and the card payments that actually settle. When they don't match, someone has
+        to find out why.
+      </p>
+
+      <h2>What I do</h2>
+      <ul class="points">
+        <li>Reconcile POS-reported cash flows against the cash actually collected.</li>
+        <li>Match credit card batches to the card sales recorded in the POS.</li>
+        <li>Review adjusted revenue edits so every change to a recorded sale is accounted for.</li>
+        <li>Validate more than $130,000 in gross revenue each month this way.</li>
+      </ul>
+
+      <h2>Running the operation behind the numbers</h2>
+      <p>
+        The reconciliation sits on top of a high-volume operation that I help run. I manage
+        seven fulfillment channels handling more than 2,200 orders a month, optimized seating
+        for an 88-seat dining room to keep tables turning, and supervise a 12-person team to
+        resolve service issues and keep standards consistent.
+      </p>
+
+      <h2>Why it matters for accounting</h2>
+      <p>
+        This is the same core skill behind a bank reconciliation or a general-ledger review:
+        confirming that every record of a transaction agrees, and tracking down the reason
+        when it doesn't. Doing it every month with real money has made accuracy a habit.
+      </p>
+
+      <h2>Skills used</h2>
+      <ul class="tags">
+        <li>Revenue Reconciliation</li>
+        <li>Cash Controls</li>
+        <li>Credit Card Batch Matching</li>
+        <li>POS Reporting</li>
+        <li>Team Supervision</li>
+        <li>Operations</li>
+      </ul>
+
+      <p class="end-link"><a href="index.html#projects">← Back to all projects</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Jayden Lee</div>
+  </footer>
+
+</body>
+</html>
